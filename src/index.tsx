@@ -1,16 +1,23 @@
 import React, { FC } from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { Box, ThemeProvider, createTheme } from '@material-ui/core';
+import theme from "./layout/theme";
+import Routes from "./Routes";
+import NavBar from "./components/Layout/NavBar";
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 
-const App: FC = () => {
-    const person = {};
+const App: FC<{}> = () => {
+    return (
 
-    const promise = new Promise((resolved, rejected) => {
-        resolved(2)
-    });
-    return (<p>ahamed site new sunni222</p>);
+            <ThemeProvider theme={theme}>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <Routes />
+                </MuiPickersUtilsProvider>
+
+            </ThemeProvider>
+    );
 };
 
-const root = createRoot(document.getElementById('root')!);
-
-root.render(<App />);
+ReactDOM.render(<App />, document.getElementById('root')!);

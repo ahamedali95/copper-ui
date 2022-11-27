@@ -1,0 +1,19 @@
+import React, {FC, Suspense} from 'react';
+import {
+    Route,
+    Navigate
+} from "react-router-dom";
+import useAuth from "hooks/useAuth";
+
+type ProtectedRouteProps = {
+    path: string;
+    children: JSX.Element;
+};
+
+const ProtectedRoute: FC<ProtectedRouteProps> = ({ path, children }) => {
+    const { isUserAuthenticated } = useAuth();
+
+    return isUserAuthenticated ?  children : <Navigate to='/login' />
+};
+
+export default ProtectedRoute;

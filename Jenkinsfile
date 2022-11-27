@@ -27,7 +27,7 @@ pipeline {
                     script {
                         echo 'Archiving artifact...'
                         zip archive: true, dir: 'build', glob: '', zipFile: "job-portal-ui-1.0.0.${env.BUILD_NUMBER}.zip"
-                        stash includes: "job-portal-ui-1.0.0.${env.BUILD_NUMBER}.zip", name: 'app'
+                        stash includes: "job-portal-ui-1.0.0.${env.BUILD_NUMBER}.zip", name: 'routes'
                     }
                 }
             }
@@ -56,7 +56,7 @@ pipeline {
                      if (ARTIFACTORY_RESPONSE == "OK") {
                          echo 'uploading artifacts to JFrog artifactory...'
                          dir("${env.WORKSPACE}/job-portal-frontend_${env.GIT_BRANCH}") {
-                             unstash 'app'
+                             unstash 'routes'
                              sh "jfrog rt upload --url https://ahamedrepo.jfrog.io/artifactory/ --access-token ${ARTIFACTORY_ACCESS_TOKEN} --fail-no-op=true job-portal-ui-1.0.0.${env.BUILD_NUMBER}.zip my-job-portal-fe-generic-local/"
                          }
                      } else {
