@@ -18,7 +18,7 @@ const ConfirmationDialog: FC<ConfirmationDialogProps> = ({ isOpen, title, conten
             </DialogContent>
             <DialogActions>
                 <Button color='primary' variant="outlined" onClick={onClose}>Cancel</Button>
-                <Button color='primary' variant="contained" onClick={onConfirm}>Agree</Button>
+                <Button color='primary' variant="contained" onClick={onConfirm}>Confirm</Button>
             </DialogActions>
         </Dialog>
     );

@@ -12,8 +12,9 @@ type ProtectedRouteProps = {
 
 const ProtectedRoute: FC<ProtectedRouteProps> = ({ path, children }) => {
     const { isUserAuthenticated } = useAuth();
+    console.log(isUserAuthenticated)
 
-    return isUserAuthenticated ?  children : <Navigate to='/login' />
+    return isUserAuthenticated ? children : <Navigate to='/login' />
 };
 
 export default ProtectedRoute;

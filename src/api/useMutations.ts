@@ -4,20 +4,23 @@ import {ResponseData, ResponseError} from "./types";
 import urls from "./url";
 import useAuth from "../hooks/useAuth";
 
+//@todo: possibly replace with react-query? - Because I am in track to recreate the same functionality that library offers.
 type useMutationReturnType<T> = {
     isLoading: boolean;
     data: ResponseData<T> | null;
     errors: ResponseError[];
-    fetch: CallableFunction
+    submit: CallableFunction;
+    isSuccess: boolean;
 };
 
 const useMutation = <T>(endpoint: string, type: string, config: AxiosRequestConfig = {}): useMutationReturnType<T> => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [data, setData] = useState<ResponseData<T> | null>(null);
     const [errors, setErrors] = useState<ResponseError[]>([]);
-    const {setAccessToken, setValueInCookie} = useAuth();
+    const [isSuccess, setIsSuccess] = useState<boolean>(false);
+    const {setValueInCookie} = useAuth();
 
-    const fetch = async (payload: T): Promise<void> => {
+    const submit = async (payload: T): Promise<void> => {
         setIsLoading(true);
 
         try {
@@ -39,17 +42,20 @@ const useMutation = <T>(endpoint: string, type: string, config: AxiosRequestConf
                 ...config
             });
 
+            //set access token after successful login. @todo: checkout axios interceptor to perform this task
             if (endpoint === urls.SIGNON) {
-                setAccessToken(response.headers.authorization.split(" ")[1]);
-                setValueInCookie("doesUserProfileExist", response.data.data.attributes.doesUserProfileExist);
+                setValueInCookie("access-token", response.headers.authorization.split(" ")[1]);
+                setValueInCookie("username", response.data.data.attributes.email)
             }
 
             setIsLoading(false);
             setData(response.data.data);
+            setIsSuccess(true);
             setErrors([]);
         } catch (e: any) {
             setIsLoading(false);
             setData(null);
+            setIsSuccess(false);
             setErrors(e.response.data.errors)
         }
     };
@@ -58,7 +64,8 @@ const useMutation = <T>(endpoint: string, type: string, config: AxiosRequestConf
         isLoading,
         data,
         errors,
-        fetch
+        submit,
+        isSuccess
     };
 };
 

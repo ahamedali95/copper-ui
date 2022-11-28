@@ -9,7 +9,7 @@ import NavBar from "./components/NavBar";
 
 const SignupForm = lazy(() => import("pages/authentication/SignupForm"));
 const LoginForm = lazy(() => import("pages/authentication/LoginForm"));
-const Dashboard = lazy(() => import("pages/dashboard"));
+const AccountSetting = lazy(() => import("pages/accountSetting/AccountSetting"));
 const Profile = lazy(() => import("./pages/profile/user/Profile"));
 
 type Route = {
@@ -30,14 +30,9 @@ const routes: Route[] = [
         isProtectedRoute: false
     },
     {
-        path: '/dashboard',
-        Component: Dashboard,
+        path: '/settings',
+        Component: AccountSetting,
         isProtectedRoute: true
-    },
-    {
-        path: '',
-        Component: Dashboard,
-        isProtectedRoute: false
     },
     {
         path: '/profile',

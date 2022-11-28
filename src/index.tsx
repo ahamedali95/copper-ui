@@ -1,22 +1,18 @@
 import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
-import { Box, ThemeProvider, createTheme } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
 import theme from "./layout/theme";
 import Routes from "./Routes";
-import NavBar from "./components/Layout/NavBar";
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-
+import store from "./reducers/store";
+import {Provider} from "react-redux";
 
 const App: FC<{}> = () => {
     return (
-
+        <Provider store={store}>
             <ThemeProvider theme={theme}>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <Routes />
-                </MuiPickersUtilsProvider>
-
             </ThemeProvider>
+        </Provider>
     );
 };
 

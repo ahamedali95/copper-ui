@@ -2,13 +2,18 @@ import React, {useMemo, FC, MouseEvent, useRef, useState} from 'react';
 import {AppBar, Toolbar, Typography, IconButton, makeStyles, Grid, Box, Menu, MenuItem} from '@material-ui/core';
 import { AccountCircle, PowerSettingsNew } from '@material-ui/icons';
 import { useNavigate } from 'react-router-dom';
-import {useCookies} from "react-cookie";
 import useAuth from "../../hooks/useAuth";
+import {useSelector} from "react-redux";
+import {UserDetail} from "../../reducers/userReducer";
 
 const useNavBarStyles = makeStyles(() => {
     return {
         icon: {
             color: '#FFFFFF'
+        },
+        email: {
+            cursor: 'default',
+            fontStyle: 'italic'
         }
     };
 });
@@ -19,7 +24,10 @@ const NavBar: FC<{}> = () => {
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState<boolean>(false);
     const appBarRef = useRef<null | HTMLHeadingElement>(null);
     const accountMenuRef = useRef<null | HTMLButtonElement>(null);
-    const {isUserAuthenticated, deleteAccessToken} = useAuth();
+    const {isUserAuthenticated, onLogout, getValueInCookie} = useAuth();
+    const user = useSelector((state: { user: UserDetail }) => state.user);
+
+    console.log(user)
 
     const handleMenuItemClick = (menuItem: string): void => {
         if (menuItem === "profile") {
@@ -52,6 +60,7 @@ const NavBar: FC<{}> = () => {
                 open={isAccountMenuOpen}
                 onClose={handleMenuClose}
             >
+                <MenuItem className={classes.email}>{getValueInCookie("username") ?? ''}</MenuItem>
                 <MenuItem onClick={() => handleMenuItemClick("profile")}>Profile</MenuItem>
                 <MenuItem onClick={() => handleMenuItemClick("account")}>My account</MenuItem>
             </Menu>
@@ -59,7 +68,7 @@ const NavBar: FC<{}> = () => {
     }, [handleMenuClose, handleMenuItemClick, isAccountMenuOpen]);
 
     const handleLogout = (): void => {
-        deleteAccessToken();
+        onLogout();
     };
 
     return (

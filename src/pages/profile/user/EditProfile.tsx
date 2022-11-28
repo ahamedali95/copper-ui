@@ -1,4 +1,4 @@
-import React, {FC, useReducer, ChangeEvent, useState} from "react";
+import React, {FC, useEffect, useReducer, ChangeEvent, useState} from "react";
 import {
     Typography,
     TextField,
@@ -49,15 +49,18 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
     const classes = useProfileFormStyles();
     const [state, dispatch] = useReducer<(state: Profile, action: ActionWithPayload<Profile> | ActionWithoutPayload) => Profile>(formReducer, data);
     const [validationErrors, setValidationErrors] = useState<Profile>({} as Profile);
-    const { isLoading, errors, fetch } = useMutation(urls.USER_PROFILE, "user", { method: "post" });
+    const { isLoading, errors, submit, isSuccess } = useMutation(urls.USER_PROFILE, "user", { method: "post" });
+
+    useEffect((): void => {
+        isSuccess && onCancel();
+    }, [isSuccess]);
 
     const handleChange = (property: keyof Profile, value: any): void => {
         dispatch({ type: 'UPDATE_PROPERTY', property, value });
     };
 
     const submitForm = async (): Promise<void> => {
-        await fetch(state);
-        onCancel();
+        submit(state);
     };
 
     const handleClick = async (): Promise<void> => {
@@ -94,10 +97,6 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
 
     const minDate = format(sub(new Date(), { years: 100 }), 'yyyy-MM-dd');
     const maxDate = format(new Date(), 'yyyy-MM-dd');
-
-    console.log(state)
-
-
 
     return (
         <>

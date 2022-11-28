@@ -1,66 +1,71 @@
-import React, {ChangeEvent, FC, useState, useEffect} from 'react';
-import {Grid, Typography, TextField, Button, Box} from '@material-ui/core';
-import logo from 'assets/icons/logo.svg';
+import React, {FC, useState, useEffect} from 'react';
 import urls from "api/url";
 import { useNavigate } from 'react-router-dom';
 import useMutation from "api/useMutations";
+import CredentialForm from "./CredentialForm";
+import {Profile} from "../profile/user/types";
+import { Credential } from './types';
+import useCredentialValidation from "../../hooks/useCredentialValidation";
+import Spinner from "../../components/spinner";
+import {Box, makeStyles, Grid} from "@material-ui/core";
+import Alert from "../../components/alert/Alert";
+import {string, object} from 'yup';
+
+const useSignupFormStyles = makeStyles(() => {
+   return {
+       loader: {
+           minHeight: 'calc(100vh - 20px)'
+       }
+   };
+});
 
 const SignupForm: FC<{}> = () => {
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const { isLoading, data, errors, fetch: createUser } = useMutation(urls.SIGNUP, "users", { method: 'post' });
+    const classes = useSignupFormStyles();
+    const credentialSchema = object().shape({
+        username: string().label("Email").email().required(),
+        password: string().label("Password").min(12).max(24).test(
+            "password-req",
+            'password must contain: 1 upper case letter and 1 lower case letter and 1 number and 1 special character of the following: !@#$%^&*',
+            (value: any) => {
+                return /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])/.test(value);
+            })
+            .required()
+    });
+    const { isLoading, data, isSuccess, errors, submit: createUser } = useMutation(urls.SIGNUP, "users", { method: 'post' });
+    const { username, password, validationErrors, setPassword, setUsername, onSubmit } = useCredentialValidation({ validationSchema: credentialSchema, userSubmit: createUser });
     const navigate = useNavigate();
 
-    useEffect(() => {
-        data && navigate('/login');
-    }, [data]);
-
-    const handleSignOn = async (): Promise<void> => {
-        console.log(username, password)
-        createUser({ email: username, password });
-
-    };
+    useEffect((): void => {
+        isSuccess && navigate('/login');
+    }, [isSuccess]);
 
     return (
-        <Grid
-            container
-            justifyContent='center'
-            alignItems='center'
-            direction='column'
-        >
-            <Box mt={10} sx={{minWidth: '500px', minHeight: '450px', padding: '50px'}} >
-                <Grid
-                    container
-                    item
-                    justifyContent='center'
-                    direction='column'
-
-                >
-                    <img draggable="false" src={logo} style={{ minHeight: 270 }} />
-                    <Typography>Enter your User ID</Typography>
-                    <Box mt={1}/>
-                    <TextField
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
-                        value={username}
-                    />
-                    <Box mt={1}/>
-                    <Typography>Enter your Password</Typography>
-                    <Box mt={1}/>
-                    <TextField
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-                        type='password'
-                        value={password}
-                    />
-                    <Box mt={3}/>
-                    <Grid item xs={12}>
-                        <Button variant='contained' sx={{width: '100%'}} onClick={handleSignOn}>
-                            Sign On
-                        </Button>
+        <>
+            <Spinner
+                isActive={isLoading}
+                className={classes.loader}
+            >
+                <CredentialForm
+                    type="signup"
+                    username={username}
+                    password={password}
+                    onUserNameChange={setUsername}
+                    onPasswordChange={setPassword}
+                    errors={validationErrors}
+                    onSubmitClick={onSubmit}
+                />
+                <Grid container justifyContent="center">
+                    <Grid item xs={3}>
+                        {
+                            !isLoading && !!errors.length &&
+                            <Box mt={2}>
+                              <Alert errors={errors} />
+                            </Box>
+                        }
                     </Grid>
                 </Grid>
-
-            </Box>
-        </Grid>
+            </Spinner>
+        </>
     );
 };
 

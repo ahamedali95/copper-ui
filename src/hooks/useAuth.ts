@@ -1,36 +1,45 @@
-import {useCookies, Cookies} from "react-cookie";
+import {useCookies} from "react-cookie";
 
-type useAuthReturn = {
+type CookieName = "access-token" | "username"
+
+type UseAuthReturn = {
     cookies: any,
     isUserAuthenticated: boolean;
     deleteAccessToken: () => void;
-    setAccessToken: (value: string) => void;
-    setValueInCookie: (name: string, value: any) => void
+    setValueInCookie: (name: CookieName, value: string) => void,
+    onLogout: () => void;
+    getValueInCookie: (name: CookieName) => string | undefined;
 };
 
-const useAuth = (): useAuthReturn => {
-    const TOKEN_COOKIE_NAME = 'access-token';
-    const additionalCookieNames = ["doesUserProfileExist"];
-    const [cookies, setCookie, removeCookie] = useCookies([TOKEN_COOKIE_NAME, ...additionalCookieNames]);
+const useAuth = (): UseAuthReturn => {
+    const cookieNames = ["access-token", "username"];
+    const [cookies, setCookie, removeCookie] = useCookies(cookieNames);
 
-    const setValueInCookie = (name: string, value: any): void => {
+    const setValueInCookie = (name: CookieName, value: string): void => {
         setCookie(name, value);
+    }
+
+    const getValueInCookie = (name: CookieName): string | undefined => {
+        return cookies[name];
     };
 
     const deleteAccessToken = (): void => {
-        removeCookie(TOKEN_COOKIE_NAME);
+        removeCookie("access-token");
     };
 
-    const setAccessToken = (token: string): void => {
-        setCookie(TOKEN_COOKIE_NAME, token);
+    const handleLogout = (): void => {
+        cookieNames.forEach((name: string) => {
+            removeCookie(name);
+        });
     };
 
     return {
         cookies,
-        isUserAuthenticated: !!cookies[TOKEN_COOKIE_NAME],
+        isUserAuthenticated: !!cookies["access-token"],
         deleteAccessToken,
-        setAccessToken,
-        setValueInCookie
+        setValueInCookie,
+        onLogout: handleLogout,
+        getValueInCookie
     };
 };
 

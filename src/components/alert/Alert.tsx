@@ -9,7 +9,7 @@ type AlertProps = {
 
 const Alert: FC<AlertProps> = ({ errors }) => {
     return (
-        <MuiAlert severity="error">
+        <MuiAlert severity="error" style={{ width: "100%"}}>
             {
                 errors.map((error: ResponseError): JSX.Element => {
                     return <Typography key={error.title} variant="body1">{error.title}</Typography>
