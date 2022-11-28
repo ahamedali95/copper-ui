@@ -8,12 +8,12 @@ type UserDetail = {
 
 const initialState = {
     id: 0,
-    email: '',
+    email: "",
     doesUserProfileExist: false
 };
 
 const user = createSlice({
-    name: 'user',
+    name: "user",
     initialState,
     reducers: {
         setUserDetails: (state, action: PayloadAction<UserDetail>) => {

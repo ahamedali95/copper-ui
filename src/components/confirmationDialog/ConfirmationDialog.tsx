@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
 
 type ConfirmationDialogProps = {
@@ -11,14 +11,25 @@ type ConfirmationDialogProps = {
 
 const ConfirmationDialog: FC<ConfirmationDialogProps> = ({ isOpen, title, content, onConfirm, onClose }) => {
     return (
-        <Dialog open={isOpen} maxWidth="md">
+        <Dialog
+            maxWidth="md"
+            open={isOpen}
+        >
             <DialogTitle>{title}</DialogTitle>
             <DialogContent>
-              <DialogContentText>{content}</DialogContentText>
+                <DialogContentText>{content}</DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button color='primary' variant="outlined" onClick={onClose}>Cancel</Button>
-                <Button color='primary' variant="contained" onClick={onConfirm}>Confirm</Button>
+                <Button
+                    color="primary"
+                    variant="outlined"
+                    onClick={onClose}
+                >Cancel</Button>
+                <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={onConfirm}
+                >Confirm</Button>
             </DialogActions>
         </Dialog>
     );

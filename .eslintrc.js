@@ -9,7 +9,8 @@ module.exports = {
     "react",
     "@typescript-eslint",
     "jest",
-    "react-hooks"
+    "react-hooks",
+    "unused-imports"
   ],
   extends: [
     "eslint:recommended",
@@ -32,6 +33,26 @@ module.exports = {
     }
   },
   rules: {
-    indent: [ 'error', 4 ]
+    indent: [ 'error', 4 ],
+    "unused-imports/no-unused-imports": "error",
+    "react/jsx-max-props-per-line": ["error", { "maximum": 1 }],
+    "react/jsx-first-prop-new-line": ["error", "multiline"],
+    "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+    "react/jsx-sort-props": [0, {
+      "ignoreCase": false,
+      "callbacksLast": false
+    }],
+    "react/jsx-wrap-multilines": ["error", {
+      "declaration": "parens-new-line",
+      "assignment": "parens-new-line",
+      "return": "parens-new-line",
+      "arrow": "parens-new-line",
+      "condition": "parens-new-line",
+      "logical": "parens-new-line",
+      "prop": "parens-new-line"
+    }],
+    "react/jsx-curly-newline": ["error", { multiline: "forbid", singleline: "forbid" }],
+    "quotes": ["error", "double", { "avoidEscape": true }],
+    "jsx-quotes": ["error", "prefer-double"]
   }
 };

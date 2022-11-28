@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {Credential} from "../pages/authentication/types";
-import {string, object, SchemaOf} from 'yup';
+import { SchemaOf} from "yup";
 import useAuth from "./useAuth";
 
 type useCredentialValidationProps = {
@@ -10,8 +10,8 @@ type useCredentialValidationProps = {
 
 const useCredentialValidation = ({ userSubmit, validationSchema }: useCredentialValidationProps) => {
     const  { getValueInCookie } = useAuth();
-    const [username, setUsername] = useState<string>(getValueInCookie("username") ?? '');
-    const [password, setPassword] = useState<string>('');
+    const [username, setUsername] = useState<string>(getValueInCookie("username") ?? "");
+    const [password, setPassword] = useState<string>("");
     const [validationErrors, setValidationErrors] = useState<Credential>({} as Credential);
 
     const handleSubmit = async (): Promise<void> => {

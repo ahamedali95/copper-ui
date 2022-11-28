@@ -6,18 +6,17 @@ import {
     Box,
     TextareaAutosize, makeStyles, Theme, Button, Select, MenuItem, InputAdornment, Divider, FormHelperText
 } from "@material-ui/core";
-import {string, object} from 'yup';
-import MuiPhoneNumber from 'material-ui-phone-number';
-import {format, sub} from 'date-fns';
+import {string, object} from "yup";
+import MuiPhoneNumber from "material-ui-phone-number";
+import {format, sub} from "date-fns";
 import {experienceMap} from "../../../util/helpers";
-import {Twitter, GitHub, LinkedIn} from '@material-ui/icons';
+import {Twitter, GitHub, LinkedIn} from "@material-ui/icons";
 import useMutation from "../../../api/useMutations";
 import urls from "../../../api/url";
-import type { Profile } from './types';
+import type { Profile } from "./types";
 import { formReducer } from "../../../reducers";
 import type { ActionWithPayload, ActionWithoutPayload } from "../../../reducers";
 import Spinner from "../../../components/spinner";
-import type { ResponseError } from '../../../api/types'
 import Alert from "../../../components/alert";
 
 const useProfileFormStyles = makeStyles((theme: Theme) => {
@@ -27,8 +26,8 @@ const useProfileFormStyles = makeStyles((theme: Theme) => {
             marginRight: theme.spacing(2)
         },
         shortBio: {
-            width: '100%',
-            maxWidth: 'inherit',
+            width: "100%",
+            maxWidth: "inherit",
             maxHeight: theme.spacing(20)
         },
         shortBioError: {
@@ -56,7 +55,7 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
     }, [isSuccess]);
 
     const handleChange = (property: keyof Profile, value: any): void => {
-        dispatch({ type: 'UPDATE_PROPERTY', property, value });
+        dispatch({ type: "UPDATE_PROPERTY", property, value });
     };
 
     const submitForm = async (): Promise<void> => {
@@ -65,7 +64,7 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
 
     const handleClick = async (): Promise<void> => {
         const profileSchema = object().shape({
-            firstName: string().label('First Name').required().max(30),
+            firstName: string().label("First Name").required().max(30),
             lastName: string().label("Last Name").required().max(30),
             occupation: string().label("Occupation").required().max(30),
             company: string().label("Company").notRequired().max(30),
@@ -95,88 +94,186 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
 
     };
 
-    const minDate = format(sub(new Date(), { years: 100 }), 'yyyy-MM-dd');
-    const maxDate = format(new Date(), 'yyyy-MM-dd');
+    const minDate = format(sub(new Date(), { years: 100 }), "yyyy-MM-dd");
+    const maxDate = format(new Date(), "yyyy-MM-dd");
 
     return (
         <>
-            <Spinner isActive={isLoading}>
+            <Spinner
+                isActive={isLoading}
+            >
                 <>
-                    <div className={classes.root}>
-                        <Box mt={4} />
+                    <div
+                        className={classes.root}
+                    >
+                        <Box mt={4}
+                        />
                         <Grid
                             container
                             justifyContent="center"
                         >
-                            <Grid item xs={6}>
+                            <Grid
+                                item
+                                xs={6}
+                            >
                                 <Typography variant="h3">Edit Profile</Typography>
-                                <Box mt={4} />
-                                <Typography variant="body1" style={{textTransform: 'uppercase'}}>Personal Details</Typography>
-                                <Grid item container direction="row" spacing={2}>
-                                    <Grid item xs={6}>
+                                <Box
+                                    mt={4}
+                                />
+                                <Typography
+                                    style={{textTransform: "uppercase"}}
+                                    variant="body1"
+                                >Personal Details</Typography>
+                                <Grid
+                                    container
+                                    direction="row"
+                                    item
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>First Name</Typography>
-                                        <Box mt={1} />
-                                        <TextField error={!!validationErrors.firstName} helperText={validationErrors.firstName} fullWidth variant='outlined' value={state.firstName} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("firstName", e.target.value)}/>
+                                        <Box
+                                            mt={1}
+                                        />
+                                        <TextField
+                                            error={!!validationErrors.firstName}
+                                            fullWidth
+                                            helperText={validationErrors.firstName}
+                                            value={state.firstName}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("firstName", e.target.value)}
+                                        />
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>Last Name</Typography>
-                                        <Box mt={1} />
-                                        <TextField error={!!validationErrors.lastName} helperText={validationErrors.lastName} fullWidth variant='outlined' value={state.lastName} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("lastName", e.target.value)}/>
+                                        <Box
+                                            mt={1}
+                                        />
+                                        <TextField
+                                            error={!!validationErrors.lastName}
+                                            fullWidth
+                                            helperText={validationErrors.lastName}
+                                            value={state.lastName}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("lastName", e.target.value)}
+                                        />
                                     </Grid>
                                 </Grid>
-                                <Grid item container spacing={2}>
-                                    <Grid item xs={6}>
+                                <Grid
+                                    container
+                                    item
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>Date of Birth</Typography>
-                                        <Box mt={1} />
+                                        <Box
+                                            mt={1}
+                                        />
                                         <TextField
-                                            error={!!validationErrors.dob} helperText={validationErrors.dob}
-                                            type="date"
                                             inputProps={{
                                                 min: minDate, max: maxDate
                                             }}
-                                            variant='outlined'
+                                            error={!!validationErrors.dob}
                                             fullWidth
+                                            helperText={validationErrors.dob}
+                                            type="date"
                                             value={state.dob}
+                                            variant="outlined"
                                             onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("dob", e.target.value)}
                                         />
                                     </Grid>
                                 </Grid>
-                                <Grid item container direction="row" spacing={2}>
-                                    <Grid item xs={6}>
+                                <Grid
+                                    container
+                                    direction="row"
+                                    item
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>City</Typography>
-                                        <Box mt={1} />
-                                        <TextField error={!!validationErrors.city} helperText={validationErrors.city} fullWidth variant='outlined' value={state.city} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("city", e.target.value)}/>
+                                        <Box
+                                            mt={1}
+                                        />
+                                        <TextField
+                                            error={!!validationErrors.city}
+                                            fullWidth
+                                            helperText={validationErrors.city}
+                                            value={state.city}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("city", e.target.value)}
+                                        />
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>State</Typography>
-                                        <Box mt={1} />
-                                        <TextField error={!!validationErrors.state} helperText={validationErrors.state} fullWidth variant='outlined' value={state.state} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("state", e.target.value)}/>
+                                        <Box
+                                            mt={1}
+                                        />
+                                        <TextField
+                                            error={!!validationErrors.state}
+                                            fullWidth
+                                            helperText={validationErrors.state}
+                                            value={state.state}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("state", e.target.value)}
+                                        />
                                     </Grid>
                                 </Grid>
-                                <Grid item container spacing={2}>
-                                    <Grid item xs={6}>
+                                <Grid
+                                    container
+                                    item
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>Postal Code</Typography>
-                                        <Box mt={1} />
+                                        <Box
+                                            mt={1}
+                                        />
                                         <TextField
-                                            error={!!validationErrors.postalCode} helperText={validationErrors.postalCode}
-                                            fullWidth
-                                            variant='outlined'
                                             InputLabelProps={{
                                                 shrink: true,
                                             }}
-                                            value={state.postalCode} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("postalCode", e.target.value)}
+                                            error={!!validationErrors.postalCode}
+                                            fullWidth
+                                            helperText={validationErrors.postalCode}
+                                            value={state.postalCode}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("postalCode", e.target.value)}
                                         />
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>Phone Number</Typography>
-                                        <Box mt={1} />
+                                        <Box
+                                            mt={1}
+                                        />
                                         <MuiPhoneNumber
-                                            error={!!validationErrors.phoneNumber} helperText={validationErrors.phoneNumber}
-                                            fullWidth
+                                            defaultCountry={"us"}
                                             disableAreaCodes
-                                            variant="outlined"
-                                            defaultCountry={'us'}
+                                            error={!!validationErrors.phoneNumber}
+                                            fullWidth
+                                            helperText={validationErrors.phoneNumber}
                                             value={state.phoneNumber}
+                                            variant="outlined"
                                             /*
                                             // @ts-ignore */
                                             onChange={(value1: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value2: any) => {
@@ -186,17 +283,28 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                         />
                                     </Grid>
                                 </Grid>
-                                <Box mt={2} />
+                                <Box
+                                    mt={2}
+                                />
                                 <Divider />
-                                <Box mt={2} />
-                                <Typography variant="body1" style={{textTransform: 'uppercase'}}>SOCIAL MEDIA LINKS</Typography>
-                                <Grid item container direction="column" spacing={2}>
+                                <Box
+                                    mt={2}
+                                />
+                                <Typography
+                                    style={{textTransform: "uppercase"}}
+                                    variant="body1"
+                                >SOCIAL MEDIA LINKS</Typography>
+                                <Grid
+                                    container
+                                    direction="column"
+                                    item
+                                    spacing={2}
+                                >
                                     <Grid item>
-                                        <Box mt={1} />
+                                        <Box
+                                            mt={1}
+                                        />
                                         <TextField
-                                            error={!!validationErrors.twitterUrl} helperText={validationErrors.twitterUrl}
-                                            fullWidth
-                                            variant='outlined'
                                             InputLabelProps={{
                                                 shrink: true,
                                             }}
@@ -206,14 +314,16 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                                 ),
 
                                             }}
-                                            value={state.twitterUrl} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("twitterUrl", e.target.value)}
+                                            error={!!validationErrors.twitterUrl}
+                                            fullWidth
+                                            helperText={validationErrors.twitterUrl}
+                                            value={state.twitterUrl}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("twitterUrl", e.target.value)}
                                         />
                                     </Grid>
                                     <Grid item>
                                         <TextField
-                                            error={!!validationErrors.githubUrl} helperText={validationErrors.githubUrl}
-                                            fullWidth
-                                            variant='outlined'
                                             InputLabelProps={{
                                                 shrink: true,
                                             }}
@@ -223,14 +333,16 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                                 ),
 
                                             }}
-                                            value={state.githubUrl} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("githubUrl", e.target.value)}
+                                            error={!!validationErrors.githubUrl}
+                                            fullWidth
+                                            helperText={validationErrors.githubUrl}
+                                            value={state.githubUrl}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("githubUrl", e.target.value)}
                                         />
                                     </Grid>
                                     <Grid item>
                                         <TextField
-                                            error={!!validationErrors.linkedInUrl} helperText={validationErrors.linkedInUrl}
-                                            fullWidth
-                                            variant='outlined'
                                             InputLabelProps={{
                                                 shrink: true,
                                             }}
@@ -240,86 +352,184 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                                 ),
 
                                             }}
-                                            value={state.linkedInUrl} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("linkedInUrl", e.target.value)}
+                                            error={!!validationErrors.linkedInUrl}
+                                            fullWidth
+                                            helperText={validationErrors.linkedInUrl}
+                                            value={state.linkedInUrl}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("linkedInUrl", e.target.value)}
                                         />
                                     </Grid>
                                 </Grid>
-                                <Box mt={2} />
+                                <Box
+                                    mt={2}
+                                />
                                 <Divider />
-                                <Box mt={2} />
-                                <Typography variant="body1" style={{textTransform: 'uppercase'}}>Professional History</Typography>
-                                <Grid item container direction="row" spacing={2}>
-                                    <Grid item xs={6}>
+                                <Box
+                                    mt={2}
+                                />
+                                <Typography
+                                    style={{textTransform: "uppercase"}}
+                                    variant="body1"
+                                >Professional History</Typography>
+                                <Grid
+                                    container
+                                    direction="row"
+                                    item
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>Occupation</Typography>
-                                        <Box mt={1} />
-                                        <TextField error={!!validationErrors.occupation} helperText={validationErrors.occupation} fullWidth variant='outlined' value={state.occupation} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("occupation", e.target.value)}/>
+                                        <Box
+                                            mt={1}
+                                        />
+                                        <TextField
+                                            error={!!validationErrors.occupation}
+                                            fullWidth
+                                            helperText={validationErrors.occupation}
+                                            value={state.occupation}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("occupation", e.target.value)}
+                                        />
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>Current Company</Typography>
-                                        <Box mt={1} />
-                                        <TextField  error={!!validationErrors.company} helperText={validationErrors.company} fullWidth variant='outlined' value={state.company} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("company", e.target.value)}/>
+                                        <Box
+                                            mt={1}
+                                        />
+                                        <TextField
+                                            error={!!validationErrors.company}
+                                            fullWidth
+                                            helperText={validationErrors.company}
+                                            value={state.company}
+                                            variant="outlined"
+                                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange("company", e.target.value)}
+                                        />
                                     </Grid>
                                 </Grid>
-                                <Grid item container spacing={2}>
-                                    <Grid item xs={6}>
+                                <Grid
+                                    container
+                                    item
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                    >
                                         <Typography>Years of Experience</Typography>
-                                        <Box mt={1} />
+                                        <Box
+                                            mt={1}
+                                        />
                                         <Select
                                             error={!!validationErrors.experience}
                                             fullWidth
-                                            variant="outlined"
                                             value={state.experience}
+                                            variant="outlined"
                                             onChange={(e: any) => handleChange("experience", e.target.value)}
                                         >
-                                            {
-                                               [...experienceMap.keys()].map((key: string): JSX.Element => {
-                                                   return (
-                                                       <MenuItem value={key} key={key}>{key}</MenuItem>
-                                                    )
-                                                })
-                                            }
+                                            {[...experienceMap.keys()].map((key: string): JSX.Element => {
+                                                return (
+                                                    <MenuItem
+                                                        key={key}
+                                                        value={key}
+                                                    >{key}</MenuItem>
+                                                )
+                                            })}
                                         </Select>
-                                        <FormHelperText className={classes.helperText} error={!!validationErrors.experience}>{validationErrors.experience}</FormHelperText>
+                                        <FormHelperText
+                                            className={classes.helperText}
+                                            error={!!validationErrors.experience}
+                                        >{validationErrors.experience}</FormHelperText>
                                     </Grid>
                                 </Grid>
 
-                                <Grid item container spacing={2}>
-                                    <Grid item xs={12}>
+                                <Grid
+                                    container
+                                    item
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={12}
+                                    >
                                         <Typography>Tell us little more about you</Typography>
-                                        <Box mt={1} />
-                                        <TextareaAutosize
-                                            className={`${classes.shortBio} ${validationErrors.shortBio ? classes.shortBioError : ''}`}
-                                            minRows={4}
-                                            maxRows={4}
-                                            placeholder="Maximum 140 characters"
-                                            value={state.shortBio} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange("shortBio", e.target.value)}
+                                        <Box
+                                            mt={1}
                                         />
-                                        <FormHelperText className={classes.helperText} error={!!validationErrors.shortBio}>{validationErrors.shortBio}</FormHelperText>
+                                        <TextareaAutosize
+                                            className={`${classes.shortBio} ${validationErrors.shortBio ? classes.shortBioError : ""}`}
+                                            maxRows={4}
+                                            minRows={4}
+                                            placeholder="Maximum 140 characters"
+                                            value={state.shortBio}
+                                            onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange("shortBio", e.target.value)}
+                                        />
+                                        <FormHelperText
+                                            className={classes.helperText}
+                                            error={!!validationErrors.shortBio}
+                                        >{validationErrors.shortBio}</FormHelperText>
                                     </Grid>
                                 </Grid>
-                                <Grid item container spacing={2}>
-                                    <Grid item xs={12}>
+                                <Grid
+                                    container
+                                    item
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={12}
+                                    >
                                     </Grid>
                                 </Grid>
-                                <Grid container direction="row" spacing={2} justifyContent="flex-end">
-                                    <Grid item xs={2}>
-                                        <Button fullWidth variant='outlined' color='primary' onClick={onCancel}>
+                                <Grid
+                                    container
+                                    direction="row"
+                                    justifyContent="flex-end"
+                                    spacing={2}
+                                >
+                                    <Grid
+                                        item
+                                        xs={2}
+                                    >
+                                        <Button
+                                            color="primary"
+                                            fullWidth
+                                            variant="outlined"
+                                            onClick={onCancel}
+                                        >
                                             Cancel
                                         </Button>
                                     </Grid>
-                                    <Grid item xs={2}>
-                                        <Button fullWidth variant='contained' color='primary' onClick={handleClick}>
+                                    <Grid
+                                        item
+                                        xs={2}
+                                    >
+                                        <Button
+                                            color="primary"
+                                            fullWidth
+                                            variant="contained"
+                                            onClick={handleClick}
+                                        >
                                             Submit
                                         </Button>
                                     </Grid>
                                 </Grid>
-                                {
-                                    !isLoading && !!errors.length &&
-                                        <>
-                                            <Box mt={3} />
-                                            <Alert errors={errors} />
-                                        </>
-                                }
+                                {!isLoading && !!errors.length && (
+                                    <>
+                                        <Box
+                                            mt={3}
+                                        />
+                                        <Alert
+                                            errors={errors}
+                                        />
+                                    </>
+                                )}
                             </Grid>
                         </Grid>
                     </div>

@@ -12,16 +12,16 @@ type Action<T> = ActionWithPayload<T> | ActionWithoutPayload;
 
 const formReducer = <T>(state: T, action: Action<T>): T => {
     switch (action.type) {
-        case 'UPDATE_PROPERTY': {
-            const $action = action as ActionWithPayload<T>;
+    case "UPDATE_PROPERTY": {
+        const $action = action as ActionWithPayload<T>;
 
-            return {
-                ...state,
-                [$action.property]: $action.value
-            };
-        }
-        default:
-            return state;
+        return {
+            ...state,
+            [$action.property]: $action.value
+        };
+    }
+    default:
+        return state;
     }
 };
 

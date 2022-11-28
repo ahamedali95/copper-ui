@@ -11,12 +11,12 @@ type Setting = {
 const settings: Setting[] = [
     {
         id: 1,
-        content: 'Update Username',
+        content: "Update Username",
         Component: Username
     },
     {
         id: 2,
-        content: 'Delete Account',
+        content: "Delete Account",
         Component: DeleteAccount
     }
 ];

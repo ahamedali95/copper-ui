@@ -1,10 +1,7 @@
-import React, {ChangeEvent, FC, useEffect, useState} from 'react';
-import {Box, Button, Grid, InputAdornment, TextField, Typography} from "@material-ui/core";
-import {useSelector} from "react-redux";
-import {UserDetail} from "../../reducers/userReducer";
+import React, {ChangeEvent, FC, useEffect} from "react";
+import {Box, Button, Grid, InputAdornment, TextField} from "@material-ui/core";
 import {Email} from "@material-ui/icons";
 import { Alert as MuiAlert} from "@material-ui/lab";
-import {Credential} from "../authentication/types";
 import { string, object } from "yup";
 import useMutation from "../../api/useMutations";
 import useCredentialValidation from "../../hooks/useCredentialValidation";
@@ -12,11 +9,11 @@ import urls from "../../api/url";
 import Alert from "../../components/alert";
 import useAuth from "../../hooks/useAuth";
 
-const Username: FC<{}> = () => {
+const Username: FC<Record<string, never>> = () => {
     const credentialSchema = object().shape({
         username: string().label("Email").email().required()
     });
-    const { isLoading, data, isSuccess, errors, submit: updatedUsername } = useMutation(urls.ACCOUNT_DETAIL, "user", { method: 'put' });
+    const { isLoading, data, isSuccess, errors, submit: updatedUsername } = useMutation(urls.ACCOUNT_DETAIL, "user", { method: "put" });
     const { username, validationErrors, setUsername, onSubmit } = useCredentialValidation({ validationSchema: credentialSchema, userSubmit: updatedUsername });
     const {onLogout} = useAuth();
 
@@ -25,33 +22,45 @@ const Username: FC<{}> = () => {
     }, [isSuccess]);
 
     return (
-        <Grid container spacing={1} direction="row">
+        <Grid
+            container
+            direction="row"
+            spacing={1}
+        >
             <Grid item>
                 <TextField
-                    error={!!validationErrors.username}
-                    helperText={validationErrors.username}
-                    variant="outlined"
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
-                    value={username}
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start"><Email color="secondary" /></InputAdornment>
                         )
                     }}
+                    error={!!validationErrors.username}
+                    helperText={validationErrors.username}
+                    value={username}
+                    variant="outlined"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
                 />
             </Grid>
             <Grid item>
-                <Button fullWidth variant='contained' color='primary' onClick={onSubmit}>
+                <Button
+                    color="primary"
+                    fullWidth
+                    variant="contained"
+                    onClick={onSubmit}
+                >
                     Submit
                 </Button>
             </Grid>
             <MuiAlert severity="info">Updating username will log you out automatically.</MuiAlert>
-            {
-                !isLoading && !!errors.length &&
-                    <Box mt={2}>
-                      <Alert errors={errors} />
-                    </Box>
-            }
+            {!isLoading && !!errors.length && (
+                <Box
+                    mt={2}
+                >
+                    <Alert
+                        errors={errors}
+                    />
+                </Box>
+            )}
         </Grid>
     );
 };

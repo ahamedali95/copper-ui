@@ -1,6 +1,5 @@
-import React, {FC, Suspense} from 'react';
+import React, {FC} from "react";
 import {
-    Route,
     Navigate
 } from "react-router-dom";
 import useAuth from "hooks/useAuth";
@@ -14,7 +13,7 @@ const ProtectedRoute: FC<ProtectedRouteProps> = ({ path, children }) => {
     const { isUserAuthenticated } = useAuth();
     console.log(isUserAuthenticated)
 
-    return isUserAuthenticated ? children : <Navigate to='/login' />
+    return isUserAuthenticated ? children : <Navigate to="/login" />
 };
 
 export default ProtectedRoute;

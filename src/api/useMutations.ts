@@ -27,7 +27,7 @@ const useMutation = <T>(endpoint: string, type: string, config: AxiosRequestConf
             const response: AxiosResponse = await axios({
                 url: `/api/v1/${endpoint}`,
                 headers: {
-                    "Content-Type": 'application/json'
+                    "Content-Type": "application/json"
                 },
                 transformRequest: (data) => {
                     return JSON.stringify({

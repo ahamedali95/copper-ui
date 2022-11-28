@@ -1,13 +1,13 @@
 import {createTheme} from "@material-ui/core";
 
 export const colors = {
-    PRIMARY_COLOR: '#cc0000',
-    SECONDARY_COLOR: '#b70000',
-    PRIMARY_TEXT_COLOR: '#101010',
-    FIELD_FOCUS_COLOR: '#0175a7',
-    FIELD_SHADOW_COLOR_1: '#2297bf',
-    FIELD_SHADOW_COLOR_2: '#091e421f',
-    FIELD_SHADOW_COLOR_3: '#091e4214'
+    PRIMARY_COLOR: "#cc0000",
+    SECONDARY_COLOR: "#b70000",
+    PRIMARY_TEXT_COLOR: "#101010",
+    FIELD_FOCUS_COLOR: "#0175a7",
+    FIELD_SHADOW_COLOR_1: "#2297bf",
+    FIELD_SHADOW_COLOR_2: "#091e421f",
+    FIELD_SHADOW_COLOR_3: "#091e4214"
 };
 
 const theme = createTheme({
@@ -48,12 +48,12 @@ const theme = createTheme({
         },
         MuiButton: {
             root: {
-                textTransform: 'none',
-                lineHeight: '22px',
-                padding: '12px 16px',
-                borderRadius: '8px',
-                fontSize: '16px',
-                minHeight: '50px'
+                textTransform: "none",
+                lineHeight: "22px",
+                padding: "12px 16px",
+                borderRadius: "8px",
+                fontSize: "16px",
+                minHeight: "50px"
             },
             containedPrimary: {
                 border: `1px solid ${colors.PRIMARY_COLOR}`

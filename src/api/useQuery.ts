@@ -1,6 +1,6 @@
 import {useState} from "react";
 import axios, {AxiosRequestConfig} from "axios";
-import { ResponseData, ResponseError } from './types';
+import { ResponseData, ResponseError } from "./types";
 
 type useQueryReturnType<T> = {
   isLoading: boolean;
@@ -20,9 +20,9 @@ const useQuery = <T>(endpoint: string, type: string, config: AxiosRequestConfig 
         setIsLoading(true);
         try {
             const response = await axios({
-                url: 'api/v1/' + endpoint,
+                url: "api/v1/" + endpoint,
                 headers: {
-                    "Content-Type": 'application/json',
+                    "Content-Type": "application/json",
                     type
                 },
                 ...config
