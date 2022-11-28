@@ -5,7 +5,7 @@ import ViewProfile from "./ViewProfile";
 import urls from "../../../api/url";
 import type { Profile as ProfileType } from './types';
 import Spinner from "../../../components/spinner";
-import Alert from "../../../components/alert/Alert";
+import Alert from "../../../components/alert";
 import {Edit, Add, Delete} from "@material-ui/icons";
 import useMutation from "../../../api/useMutations";
 import ConfirmationDialog from "../../../components/confirmationDialog";

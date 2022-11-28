@@ -8,7 +8,7 @@ import { Credential } from './types';
 import useCredentialValidation from "../../hooks/useCredentialValidation";
 import Spinner from "../../components/spinner";
 import {Box, makeStyles, Grid} from "@material-ui/core";
-import Alert from "../../components/alert/Alert";
+import Alert from "../../components/alert";
 import {string, object} from 'yup';
 
 const useSignupFormStyles = makeStyles(() => {

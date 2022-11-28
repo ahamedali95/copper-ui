@@ -18,7 +18,7 @@ import { formReducer } from "../../../reducers";
 import type { ActionWithPayload, ActionWithoutPayload } from "../../../reducers";
 import Spinner from "../../../components/spinner";
 import type { ResponseError } from '../../../api/types'
-import Alert from "../../../components/alert/Alert";
+import Alert from "../../../components/alert";
 
 const useProfileFormStyles = makeStyles((theme: Theme) => {
     return {
@@ -170,7 +170,6 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                     <Grid item xs={6}>
                                         <Typography>Phone Number</Typography>
                                         <Box mt={1} />
-                                        {/* @ts-ignore */}
                                         <MuiPhoneNumber
                                             error={!!validationErrors.phoneNumber} helperText={validationErrors.phoneNumber}
                                             fullWidth
@@ -178,6 +177,8 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                             variant="outlined"
                                             defaultCountry={'us'}
                                             value={state.phoneNumber}
+                                            /*
+                                            // @ts-ignore */
                                             onChange={(value1: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value2: any) => {
                                                 handleChange("phoneNumber", value1);
                                                 handleChange("country", value2.name)

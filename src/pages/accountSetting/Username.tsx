@@ -9,7 +9,7 @@ import { string, object } from "yup";
 import useMutation from "../../api/useMutations";
 import useCredentialValidation from "../../hooks/useCredentialValidation";
 import urls from "../../api/url";
-import Alert from "../../components/alert/Alert";
+import Alert from "../../components/alert";
 import useAuth from "../../hooks/useAuth";
 
 const Username: FC<{}> = () => {

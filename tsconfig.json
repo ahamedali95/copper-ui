@@ -18,7 +18,25 @@
     "outDir": "ts-output",
     "moduleResolution": "node",
     "module": "esnext",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "api/*": [
+        "src/api/*"
+      ],
+      "assets/icons": [
+        "src/assets/icons/*"
+      ],
+      "assets/*": [
+        "src/assets/*"
+      ],
+      "hooks/*": [
+        "src/hooks/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ]
+    }
   },
   "include": [
     "src"

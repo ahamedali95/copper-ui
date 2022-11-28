@@ -9,7 +9,7 @@ type useMutationReturnType<T> = {
     isLoading: boolean;
     data: ResponseData<T> | null;
     errors: ResponseError[];
-    submit: CallableFunction;
+    submit: (payload?: T) => Promise<void>;
     isSuccess: boolean;
 };
 
@@ -20,7 +20,7 @@ const useMutation = <T>(endpoint: string, type: string, config: AxiosRequestConf
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
     const {setValueInCookie} = useAuth();
 
-    const submit = async (payload: T): Promise<void> => {
+    const submit = async (payload: T = {} as T): Promise<void> => {
         setIsLoading(true);
 
         try {

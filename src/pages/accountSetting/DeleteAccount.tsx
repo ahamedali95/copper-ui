@@ -3,7 +3,7 @@ import {Button, Grid, Box} from "@material-ui/core";
 import {Alert as MuiAlert} from "@material-ui/lab";
 import useMutation from "../../api/useMutations";
 import urls from "../../api/url";
-import Alert from "../../components/alert/Alert";
+import Alert from "../../components/alert";
 import useAuth from "../../hooks/useAuth";
 
 const DeleteAccount: FC<{}> = () => {

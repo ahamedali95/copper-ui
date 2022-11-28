@@ -3,13 +3,13 @@ import urls from "api/url";
 import { useNavigate } from 'react-router-dom';
 import useMutation from "api/useMutations";
 import {useDispatch} from "react-redux";
-import {setUserDetails} from "../../reducers/userReducer";
+import {setUserDetails, UserDetail} from "../../reducers/userReducer";
 import CredentialForm from "./CredentialForm";
 import {string, object} from 'yup';
 import useCredentialValidation from "../../hooks/useCredentialValidation";
 import Spinner from "../../components/spinner";
 import {Box, Grid, makeStyles} from "@material-ui/core";
-import Alert from "../../components/alert/Alert";
+import Alert from "../../components/alert";
 
 const useloginFormStyles = makeStyles(() => {
     return {
@@ -38,7 +38,7 @@ const LoginForm: FC<{}> = () => {
 
     useEffect((): void => {
         if (isSuccess) {
-            dispatch(setUserDetails(data?.attributes));
+            dispatch(setUserDetails(data?.attributes as UserDetail));
             navigate('/profile');
         }
     }, [data?.attributes, isSuccess]);
