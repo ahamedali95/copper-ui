@@ -1,8 +1,9 @@
-import React, {ChangeEvent, FC} from "react";
-import {Box, Button, Grid, InputAdornment, makeStyles, TextField, Typography} from "@material-ui/core";
+import { Box, Button, Grid, InputAdornment, makeStyles, TextField, Typography } from "@material-ui/core";
+import { Email, Lock } from "@material-ui/icons";
 import logo from "assets/icons/logo.svg";
+import React, { ChangeEvent, FC } from "react";
+
 import { Credential } from "./types";
-import {Email, Lock} from "@material-ui/icons";
 
 type CredentialFormProps = {
     username: string;
@@ -80,7 +81,7 @@ const CredentialForm: FC<CredentialFormProps> = ({ username, password, onPasswor
                         }}
                         helperText={(
                             <Typography
-                                style={{ maxWidth: "100px"}}
+                                style={{ maxWidth: "100px" }}
                                 variant="caption"
                             >
                                 {(errors.password ?? "").split(":").map((error: string) => {

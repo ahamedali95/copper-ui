@@ -1,10 +1,11 @@
+import { ThemeProvider } from "@material-ui/core";
 import React, { FC } from "react";
 import ReactDOM from "react-dom";
-import { ThemeProvider } from "@material-ui/core";
+import { Provider } from "react-redux";
+
 import theme from "./layout/theme";
-import Routes from "./Routes";
 import store from "./reducers/store";
-import {Provider} from "react-redux";
+import Routes from "./Routes";
 
 const App: FC<Record<string, never>> = () => {
     return (

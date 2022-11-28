@@ -1,15 +1,16 @@
-import {Grid, Box, makeStyles, Theme, Button} from "@material-ui/core";
-import React, {FC, useEffect, useState} from "react";
-import EditProfile from "./EditProfile";
-import ViewProfile from "./ViewProfile";
+import { Box, Button, Grid, makeStyles, Theme } from "@material-ui/core";
+import { Add, Delete, Edit } from "@material-ui/icons";
+import React, { FC, useEffect, useState } from "react";
+
 import urls from "../../../api/url";
-import type { Profile as ProfileType } from "./types";
-import Spinner from "../../../components/spinner";
-import Alert from "../../../components/alert";
-import {Edit, Add, Delete} from "@material-ui/icons";
 import useMutation from "../../../api/useMutations";
+import Alert from "../../../components/alert";
 import ConfirmationDialog from "../../../components/confirmationDialog";
-import {useUserProfileQuery} from "../../../hooks/api";
+import Spinner from "../../../components/spinner";
+import { useUserProfileQuery } from "../../../hooks/api";
+import EditProfile from "./EditProfile";
+import type { Profile as ProfileType } from "./types";
+import ViewProfile from "./ViewProfile";
 
 const useProfileStyles = makeStyles((theme: Theme) => {
     return {
@@ -45,7 +46,7 @@ const INITIAL_STATE = {
     city: "",
     state: "",
     postalCode: "",
-    shortBio: "",
+    shortBio: ""
 };
 
 const Profile: FC<Record<string, never>> = () => {

@@ -1,6 +1,7 @@
-import {useState} from "react";
-import {Credential} from "../pages/authentication/types";
-import { SchemaOf} from "yup";
+import { useState } from "react";
+import { SchemaOf } from "yup";
+
+import { Credential } from "../pages/authentication/types";
 import useAuth from "./useAuth";
 
 type useCredentialValidationProps = {

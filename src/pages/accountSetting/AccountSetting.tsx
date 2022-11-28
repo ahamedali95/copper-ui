@@ -1,16 +1,16 @@
-import React, {FC} from "react";
 import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
     Box,
     Grid,
-    Typography,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    makeStyles
-} from "@material-ui/core";
+    makeStyles,
+    Typography } from "@material-ui/core";
 import { ExpandMoreOutlined } from "@material-ui/icons";
-import { settings } from "./settings";
+import React, { FC } from "react";
+
 import type { Setting } from "./settings";
+import { settings } from "./settings";
 
 const useAccountSettingStyles = makeStyles(() => {
     return {

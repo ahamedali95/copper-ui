@@ -1,4 +1,4 @@
-import {useCookies} from "react-cookie";
+import { useCookies } from "react-cookie";
 
 type CookieName = "access-token" | "username"
 

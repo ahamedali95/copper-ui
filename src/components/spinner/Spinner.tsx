@@ -1,5 +1,5 @@
+import { CircularProgress, Typography } from "@material-ui/core";
 import React, { FC } from "react";
-import {CircularProgress, Typography} from "@material-ui/core";
 import LoadingOverlay from "react-loading-overlay-ts";
 
 type SpinnerProps = {

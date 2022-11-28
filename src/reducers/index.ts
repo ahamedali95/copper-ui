@@ -1,9 +1,8 @@
-import formReducer, {ActionWithPayload, ActionWithoutPayload} from "./formReducer";
+import formReducer, { ActionWithoutPayload, ActionWithPayload } from "./formReducer";
 
 export type {
-    ActionWithPayload,
-    ActionWithoutPayload
-}
+    ActionWithoutPayload,
+    ActionWithPayload }
 
 export {
     formReducer

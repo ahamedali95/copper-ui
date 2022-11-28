@@ -1,10 +1,10 @@
-import React, { FC, LazyExoticComponent, lazy, Suspense } from "react";
+import ProtectedRoute from "pages/authentication/ProtectedRoute";
+import React, { FC, lazy, LazyExoticComponent, Suspense } from "react";
 import {
     BrowserRouter,
-    Routes as ReactRoutes,
     Route,
-} from "react-router-dom";
-import ProtectedRoute from "pages/authentication/ProtectedRoute";
+    Routes as ReactRoutes } from "react-router-dom";
+
 import NavBar from "./components/NavBar";
 
 const SignupForm = lazy(() => import("pages/authentication/SignupForm"));
@@ -38,7 +38,7 @@ const routes: Route[] = [
         path: "/profile",
         Component: Profile,
         isProtectedRoute: true
-    },
+    }
 ];
 
 const Routes: FC<Record<string, never>> = () => {

@@ -1,6 +1,7 @@
-import Username from "./Username";
-import {FC} from "react";
+import { FC } from "react";
+
 import DeleteAccount from "./DeleteAccount";
+import Username from "./Username";
 
 type Setting = {
     id: number;

@@ -1,8 +1,9 @@
-import {useState} from "react";
-import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
-import {ResponseData, ResponseError} from "./types";
-import urls from "./url";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import { useState } from "react";
+
 import useAuth from "../hooks/useAuth";
+import { ResponseData, ResponseError } from "./types";
+import urls from "./url";
 
 //@todo: possibly replace with react-query? - Because I am in track to recreate the same functionality that library offers.
 type useMutationReturnType<T> = {
@@ -18,7 +19,7 @@ const useMutation = <T>(endpoint: string, type: string, config: AxiosRequestConf
     const [data, setData] = useState<ResponseData<T> | null>(null);
     const [errors, setErrors] = useState<ResponseError[]>([]);
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
-    const {setValueInCookie} = useAuth();
+    const { setValueInCookie } = useAuth();
 
     const submit = async (payload: T = {} as T): Promise<void> => {
         setIsLoading(true);
@@ -56,7 +57,7 @@ const useMutation = <T>(endpoint: string, type: string, config: AxiosRequestConf
             setIsLoading(false);
             setData(null);
             setIsSuccess(false);
-            setErrors(e.response.data.errors)
+            setErrors(e?.response?.data?.errors ?? [])
         }
     };
 

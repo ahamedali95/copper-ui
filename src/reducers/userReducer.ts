@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type UserDetail = {
     id: number;
@@ -36,7 +36,6 @@ export type {
 };
 
 export {
-    userReducer,
     setUserDetails,
-    setUserProfileExists
-};
+    setUserProfileExists,
+    userReducer };

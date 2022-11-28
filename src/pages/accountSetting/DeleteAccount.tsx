@@ -1,14 +1,15 @@
-import React, {FC, useEffect} from "react";
-import {Button, Grid, Box} from "@material-ui/core";
-import {Alert as MuiAlert} from "@material-ui/lab";
-import useMutation from "../../api/useMutations";
+import { Box, Button, Grid } from "@material-ui/core";
+import { Alert as MuiAlert } from "@material-ui/lab";
+import React, { FC, useEffect } from "react";
+
 import urls from "../../api/url";
+import useMutation from "../../api/useMutations";
 import Alert from "../../components/alert";
 import useAuth from "../../hooks/useAuth";
 
 const DeleteAccount: FC<Record<string, never>> = () => {
     const { isLoading, data, isSuccess, errors, submit: deleteUser } = useMutation(urls.ACCOUNT_DETAIL, "user", { method: "delete" });
-    const {onLogout} = useAuth();
+    const { onLogout } = useAuth();
 
     useEffect((): void => {
         isSuccess && onLogout();

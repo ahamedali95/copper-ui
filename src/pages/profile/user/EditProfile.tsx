@@ -1,23 +1,21 @@
-import React, {FC, useEffect, useReducer, ChangeEvent, useState} from "react";
 import {
-    Typography,
-    TextField,
-    Grid,
-    Box,
-    TextareaAutosize, makeStyles, Theme, Button, Select, MenuItem, InputAdornment, Divider, FormHelperText
+    Box, Button, Divider, FormHelperText, Grid, InputAdornment, makeStyles, MenuItem, Select, TextareaAutosize,
+    TextField, Theme, Typography
 } from "@material-ui/core";
-import {string, object} from "yup";
+import { GitHub, LinkedIn, Twitter } from "@material-ui/icons";
+import { format, sub } from "date-fns";
 import MuiPhoneNumber from "material-ui-phone-number";
-import {format, sub} from "date-fns";
-import {experienceMap} from "../../../util/helpers";
-import {Twitter, GitHub, LinkedIn} from "@material-ui/icons";
-import useMutation from "../../../api/useMutations";
+import React, { ChangeEvent, FC, useEffect, useReducer, useState } from "react";
+import { object, string } from "yup";
+
 import urls from "../../../api/url";
-import type { Profile } from "./types";
-import { formReducer } from "../../../reducers";
-import type { ActionWithPayload, ActionWithoutPayload } from "../../../reducers";
-import Spinner from "../../../components/spinner";
+import useMutation from "../../../api/useMutations";
 import Alert from "../../../components/alert";
+import Spinner from "../../../components/spinner";
+import type { ActionWithoutPayload, ActionWithPayload } from "../../../reducers";
+import { formReducer } from "../../../reducers";
+import { experienceMap } from "../../../util/helpers";
+import type { Profile } from "./types";
 
 const useProfileFormStyles = makeStyles((theme: Theme) => {
     return {
@@ -106,7 +104,8 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                     <div
                         className={classes.root}
                     >
-                        <Box mt={4}
+                        <Box
+                            mt={4}
                         />
                         <Grid
                             container
@@ -121,7 +120,7 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                     mt={4}
                                 />
                                 <Typography
-                                    style={{textTransform: "uppercase"}}
+                                    style={{ textTransform: "uppercase" }}
                                     variant="body1"
                                 >Personal Details</Typography>
                                 <Grid
@@ -248,7 +247,7 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                         />
                                         <TextField
                                             InputLabelProps={{
-                                                shrink: true,
+                                                shrink: true
                                             }}
                                             error={!!validationErrors.postalCode}
                                             fullWidth
@@ -291,7 +290,7 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                     mt={2}
                                 />
                                 <Typography
-                                    style={{textTransform: "uppercase"}}
+                                    style={{ textTransform: "uppercase" }}
                                     variant="body1"
                                 >SOCIAL MEDIA LINKS</Typography>
                                 <Grid
@@ -306,12 +305,12 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                         />
                                         <TextField
                                             InputLabelProps={{
-                                                shrink: true,
+                                                shrink: true
                                             }}
                                             InputProps={{
                                                 startAdornment: (
                                                     <InputAdornment position="start"><Twitter color="secondary" /></InputAdornment>
-                                                ),
+                                                )
 
                                             }}
                                             error={!!validationErrors.twitterUrl}
@@ -325,12 +324,12 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                     <Grid item>
                                         <TextField
                                             InputLabelProps={{
-                                                shrink: true,
+                                                shrink: true
                                             }}
                                             InputProps={{
                                                 startAdornment: (
                                                     <InputAdornment position="start"><GitHub color="secondary" /></InputAdornment>
-                                                ),
+                                                )
 
                                             }}
                                             error={!!validationErrors.githubUrl}
@@ -344,12 +343,12 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                     <Grid item>
                                         <TextField
                                             InputLabelProps={{
-                                                shrink: true,
+                                                shrink: true
                                             }}
                                             InputProps={{
                                                 startAdornment: (
                                                     <InputAdornment position="start"><LinkedIn color="secondary" /></InputAdornment>
-                                                ),
+                                                )
 
                                             }}
                                             error={!!validationErrors.linkedInUrl}
@@ -369,7 +368,7 @@ const EditProfile: FC<EditProfileProps> = ({ data, onCancel }) => {
                                     mt={2}
                                 />
                                 <Typography
-                                    style={{textTransform: "uppercase"}}
+                                    style={{ textTransform: "uppercase" }}
                                     variant="body1"
                                 >Professional History</Typography>
                                 <Grid

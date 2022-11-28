@@ -1,10 +1,11 @@
-import React, {useMemo, FC, MouseEvent, useRef, useState} from "react";
-import {AppBar, Toolbar, Typography, IconButton, makeStyles, Grid, Box, Menu, MenuItem} from "@material-ui/core";
+import { AppBar, Box, Grid, IconButton, makeStyles, Menu, MenuItem, Toolbar, Typography } from "@material-ui/core";
 import { AccountCircle, PowerSettingsNew } from "@material-ui/icons";
+import React, { FC, MouseEvent, useMemo, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import useAuth from "../../hooks/useAuth";
-import {useSelector} from "react-redux";
-import {UserDetail} from "../../reducers/userReducer";
+import { UserDetail } from "../../reducers/userReducer";
 
 const useNavBarStyles = makeStyles(() => {
     return {
@@ -24,7 +25,7 @@ const NavBar: FC<Record<string, never>> = () => {
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState<boolean>(false);
     const appBarRef = useRef<null | HTMLHeadingElement>(null);
     const accountMenuRef = useRef<null | HTMLButtonElement>(null);
-    const {isUserAuthenticated, onLogout, getValueInCookie} = useAuth();
+    const { isUserAuthenticated, onLogout, getValueInCookie } = useAuth();
     const user = useSelector((state: { user: UserDetail }) => state.user);
 
     console.log(user)

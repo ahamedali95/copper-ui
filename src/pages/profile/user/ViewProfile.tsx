@@ -1,8 +1,9 @@
-import React, { FC } from "react";
-import { Grid, Typography, Paper, Box, makeStyles, Theme, Chip, Divider, IconButton } from "@material-ui/core";
-import {Twitter, GitHub, LinkedIn} from "@material-ui/icons";
+import { Box, Chip, Divider, Grid, IconButton, makeStyles, Paper, Theme, Typography } from "@material-ui/core";
+import { GitHub, LinkedIn, Twitter } from "@material-ui/icons";
 import { differenceInYears } from "date-fns";
-import {experienceMap} from "../../../util/helpers";
+import React, { FC } from "react";
+
+import { experienceMap } from "../../../util/helpers";
 import type { Profile } from "./types";
 
 type ViewProfileProps = {

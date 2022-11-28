@@ -1,13 +1,14 @@
-import React, {ChangeEvent, FC, useEffect} from "react";
-import {Box, Button, Grid, InputAdornment, TextField} from "@material-ui/core";
-import {Email} from "@material-ui/icons";
-import { Alert as MuiAlert} from "@material-ui/lab";
-import { string, object } from "yup";
-import useMutation from "../../api/useMutations";
-import useCredentialValidation from "../../hooks/useCredentialValidation";
+import { Box, Button, Grid, InputAdornment, TextField } from "@material-ui/core";
+import { Email } from "@material-ui/icons";
+import { Alert as MuiAlert } from "@material-ui/lab";
+import React, { ChangeEvent, FC, useEffect } from "react";
+import { object, string } from "yup";
+
 import urls from "../../api/url";
+import useMutation from "../../api/useMutations";
 import Alert from "../../components/alert";
 import useAuth from "../../hooks/useAuth";
+import useCredentialValidation from "../../hooks/useCredentialValidation";
 
 const Username: FC<Record<string, never>> = () => {
     const credentialSchema = object().shape({
@@ -15,7 +16,7 @@ const Username: FC<Record<string, never>> = () => {
     });
     const { isLoading, data, isSuccess, errors, submit: updatedUsername } = useMutation(urls.ACCOUNT_DETAIL, "user", { method: "put" });
     const { username, validationErrors, setUsername, onSubmit } = useCredentialValidation({ validationSchema: credentialSchema, userSubmit: updatedUsername });
-    const {onLogout} = useAuth();
+    const { onLogout } = useAuth();
 
     useEffect((): void => {
         isSuccess && onLogout();

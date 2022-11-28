@@ -1,5 +1,6 @@
-import {useState} from "react";
-import axios, {AxiosRequestConfig} from "axios";
+import axios, { AxiosRequestConfig } from "axios";
+import { useState } from "react";
+
 import { ResponseData, ResponseError } from "./types";
 
 type useQueryReturnType<T> = {
@@ -36,7 +37,7 @@ const useQuery = <T>(endpoint: string, type: string, config: AxiosRequestConfig 
             setIsLoading(false);
             setData(null);
             setIsSuccess(false);
-            setErrors(e.response.data.errors)
+            setErrors(e?.response?.data?.errors ?? [])
         }
     };
 

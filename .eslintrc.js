@@ -10,7 +10,8 @@ module.exports = {
     "@typescript-eslint",
     "jest",
     "react-hooks",
-    "unused-imports"
+    "unused-imports",
+    "simple-import-sort"
   ],
   extends: [
     "eslint:recommended",
@@ -53,6 +54,11 @@ module.exports = {
     }],
     "react/jsx-curly-newline": ["error", { multiline: "forbid", singleline: "forbid" }],
     "quotes": ["error", "double", { "avoidEscape": true }],
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-double"],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "object-curly-spacing": ["error", "always", { "arraysInObjects": true }],
+    "comma-dangle": "error"
   }
 };

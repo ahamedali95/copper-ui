@@ -1,7 +1,8 @@
-import React, { FC } from "react";
-import {ResponseError} from "../../api/types";
-import {Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { Alert as MuiAlert } from "@material-ui/lab";
+import React, { FC } from "react";
+
+import { ResponseError } from "../../api/types";
 
 type AlertProps = {
     errors: ResponseError[];
@@ -11,7 +12,7 @@ const Alert: FC<AlertProps> = ({ errors }) => {
     return (
         <MuiAlert
             severity="error"
-            style={{ width: "100%"}}
+            style={{ width: "100%" }}
         >
             {errors.map((error: ResponseError): JSX.Element => {
                 return (

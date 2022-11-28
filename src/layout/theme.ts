@@ -1,4 +1,4 @@
-import {createTheme} from "@material-ui/core";
+import { createTheme } from "@material-ui/core";
 
 export const colors = {
     PRIMARY_COLOR: "#cc0000",
@@ -74,7 +74,7 @@ const theme = createTheme({
             primary: colors.PRIMARY_TEXT_COLOR
         }
 
-    },
+    }
 });
 
 export default theme;
