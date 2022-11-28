@@ -1,5 +1,5 @@
 {
-  "name": "my-job-portal",
+  "name": "copper-ui",
   "version": "1.0.0-SNAPSHOT",
   "description": "",
   "main": "build/index.html",
@@ -19,16 +19,8 @@
     "build:dev": "webpack --config config/webpack.dev.js",
     "build:prod": "webpack --config config/webpack.prod.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ahamedali95/my-job-portal.git"
-  },
   "author": "Ahamed Abbas",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ahamedali95/my-job-portal/issues"
-  },
-  "homepage": "https://github.com/ahamedali95/my-job-portal#readme",
+  "license": "See license in LICENSE.txt",
   "dependencies": {
     "@ag-grid-community/core": "^28.0.2",
     "@date-io/date-fns": "^1.1.0",

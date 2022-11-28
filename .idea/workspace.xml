@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a583b246-f3ae-4f15-bc3c-07d651db65b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/useMutations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/useMutations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/useQuery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/useQuery.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/alert/Alert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/alert/Alert.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/confirmationDialog/ConfirmationDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/confirmationDialog/ConfirmationDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navBar/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navBar/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/spinner/Spinner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/spinner/Spinner.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/api/useUserProfileQuery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/api/useUserProfileQuery.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useAuth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useCredentialValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useCredentialValidation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/accountSetting/AccountSetting.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/accountSetting/AccountSetting.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/accountSetting/DeleteAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/accountSetting/DeleteAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/accountSetting/Username.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/accountSetting/Username.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/accountSetting/settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/accountSetting/settings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/authentication/CredentialForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authentication/CredentialForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/authentication/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authentication/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/authentication/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authentication/ProtectedRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/authentication/SignupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authentication/SignupForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/user/EditProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/user/EditProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/user/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/user/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile/user/ViewProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/user/ViewProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/userReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/userReducer.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,87 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/accountSetting/AccountSetting.tsx">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#145#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/accountSetting/DeleteAccount.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/layout/theme.ts">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hooks/useCredentialValidation.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hooks/useAuth.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hooks/api/useUserProfileQuery.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/confirmationDialog/ConfirmationDialog.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#113#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/alert/Alert.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="241">
+              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -139,13 +34,57 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/useMutations.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="59" column="53" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+            <state>
+              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#65#0" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compilation-stats.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-70" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/webpack.dev.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/webpack.common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="39" selection-start-line="14" selection-start-column="6" selection-end-line="17" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jest.setup.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/babel.config.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LICENSE.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -233,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/pages/accountSetting/settings.ts" />
         <option value="$PROJECT_DIR$/src/hooks/useAuth.ts" />
         <option value="$PROJECT_DIR$/src/hooks/useCredentialValidation.ts" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/src/custom.d.ts" />
         <option value="$PROJECT_DIR$/src/pages/authentication/CredentialForm.tsx" />
@@ -253,6 +191,7 @@
         <option value="$PROJECT_DIR$/src/pages/profile/user/EditProfile.tsx" />
         <option value="$PROJECT_DIR$/src/api/useQuery.ts" />
         <option value="$PROJECT_DIR$/src/api/useMutations.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -277,89 +216,6 @@
             <path>
               <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="alert" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="confirmationDialog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hooks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hooks" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="accountSetting" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -410,18 +266,18 @@
       <updated>1668865379143</updated>
       <workItem from="1668865382104" duration="1616000" />
       <workItem from="1669156251927" duration="123333000" />
-      <workItem from="1669594015916" duration="18069000" />
+      <workItem from="1669594015916" duration="18353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143018000" />
+    <option name="totallyTimeSpent" value="143302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24920128" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24920128" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -437,7 +293,7 @@
       <window_info anchor="bottom" id="GraphQL" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.4288725" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.4288725" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32982087" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -463,33 +319,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/reducers/agendaStatusReducer.ts" />
-    <entry file="file://$PROJECT_DIR$/src/api/queries/index.ts" />
-    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/styles/createTheme.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hooks/api/useUserProfileMutation.ts" />
-    <entry file="file://$PROJECT_DIR$/src/hooks/api/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/profile/user/types.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/picsvg_download.svg" />
-    <entry file="file://$PROJECT_DIR$/src/nhZAwC01.svg" />
-    <entry file="file://$PROJECT_DIR$/src/key-logo.svg" />
     <entry file="file://$PROJECT_DIR$/src/assets/icons/logo.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -562,16 +391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpack.dev.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpack.common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="17" column="39" selection-start-line="14" selection-start-column="6" selection-end-line="17" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -604,13 +423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -814,8 +626,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/useMutations.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="59" column="53" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+        <state>
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compilation-stats.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jenkinsfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vercel.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jest.setup.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/babel.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.dev.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="39" selection-start-line="14" selection-start-column="6" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
         </state>
       </provider>
     </entry>
