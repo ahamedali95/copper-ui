@@ -1,4 +1,4 @@
-import { AppBar, Box, Grid, IconButton, makeStyles, Menu, MenuItem, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Box, Grid, IconButton, Button, makeStyles, Menu, MenuItem, Toolbar, Typography } from "@material-ui/core";
 import { AccountCircle, PowerSettingsNew } from "@material-ui/icons";
 import React, { FC, MouseEvent, useMemo, useRef, useState } from "react";
 import { useSelector } from "react-redux";
@@ -15,6 +15,9 @@ const useNavBarStyles = makeStyles(() => {
         email: {
             cursor: "default",
             fontStyle: "italic"
+        },
+        signupBtn: {
+            color: "#FFFFFF"
         }
     };
 });
@@ -27,8 +30,6 @@ const NavBar: FC<Record<string, never>> = () => {
     const accountMenuRef = useRef<null | HTMLButtonElement>(null);
     const { isUserAuthenticated, onLogout, getValueInCookie } = useAuth();
     const user = useSelector((state: { user: UserDetail }) => state.user);
-
-    console.log(user)
 
     const handleMenuItemClick = (menuItem: string): void => {
         if (menuItem === "profile") {
@@ -114,6 +115,18 @@ const NavBar: FC<Record<string, never>> = () => {
                             </Grid>
                         )}
                     </Grid>
+                    {
+                        !isUserAuthenticated &&
+                            <Grid item>
+                                <Button
+                                  primary="outlined"
+                                  className={classes.signupBtn}
+                                  onClick={() => navigate("/signup")}
+                                >
+                                  Sign up
+                                </Button>
+                            </Grid>
+                    }
                 </Toolbar>
             </AppBar>
             {renderAccountMenu}
